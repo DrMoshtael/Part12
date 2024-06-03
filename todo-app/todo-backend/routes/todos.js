@@ -3,8 +3,6 @@ const { Todo } = require('../mongo')
 const router = express.Router();
 const { setAsync, getAsync } = require('../redis')
 
-let todoCounter = 12; //initial value
-
 /* GET todos listing. */
 router.get('/', async (_, res) => {
   const todos = await Todo.find({})
@@ -32,7 +30,8 @@ router.post('/', async (req, res) => {
   })
 
   try {
-    todoCounter = Number(await getAsync("added_todos"))
+    let todoCounter = Number(await getAsync("added_todos"))
+    if (!todoCounter) todoCounter = 0
     todoCounter++
     const result = await setAsync("added_todos",todoCounter)
     console.log('result',result)

@@ -20,8 +20,9 @@ services:
     environment:
       - REDIS_PASSWORD=example
       - REDIS_PORT=6379
-    volumes:
-      - ./redis_data:/root/redis
+    command: ['redis-server', '--appendonly', 'yes'] # Overwrite the CMD
+    volumes: # Declare the volume
+      - ./redis_data:/data
 
 volumes:
   mongo_data:
