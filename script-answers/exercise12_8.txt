@@ -1,0 +1,104 @@
+Script started on Sun Jun  2 12:18:43 2024
+[1m[7m%[27m[1m[0m                                                                                                                       ]2;howard@Howards-MacBook-Pro:~/Documents/Learning/Helsinki/Part12/todo-app/todo-backend]1;../todo-backend[0m[27m[24m[J[01;32m➜  [36mtodo-backend[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hscriptdocker exec -it 911198b2344f mongosh -u root -p example[18D                  [19D[29Dcontainer ls                 [17D[10Dmpose -f docker-compose.dev.yml up[36Dexec -it brave_brown bash           [11D[25Dcompose -f docker-compose.dev.yml up[34Dntainer ls                        [24D[12Dexec -it 911198b2344f mongosh -u root -p example[55Dscript                                                 [49Ddocker exec -it 911198b2344f mongosh -u root -p example[?1l>[?2004l
+]2;docker exec -it 911198b2344f mongosh -u root -p example]1;docker]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	665c55266914e7c2088db5fa
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.6[0m
+Using MongoDB:		7.0.11
+[1m[33mUsing Mongosh[0m:		2.2.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2024-06-02T11:07:38.226+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never' in this binary version
+   2024-06-02T11:07:38.226+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1G[0Jtest> [7G[1G[0Jtest> db.todos.find({})[24G[1G[0Jtest> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[93G[1G[0Jtest> db.todos.find({})[24G[1G[0Jtest> show collections[23G[1G[0Jtest> use the_database[23G[1G[0Jtest> show dbs[15G[1G[0Jtest> [7G[1G[0Jtest> show dbs[15G[1G[0Jtest> use the_database[23G[1G[0Jtest> show collections[23G[1G[0Jtest> use the_database[23G[1G[0Jtest> show dbs[15G
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         96.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jtest> [7G[1G[0Jtest> show dbs[15G[1G[0Jtest> db.todos.find({})[24G[1G[0Jtest> show dbs[15G[1G[0Jtest> [7G[1G[0Jtest> show dbs[15G[1G[0Jtest> db.todos.find({})[24G[1G[0Jtest> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[93G[1G[0Jtest> db.todos.find({})[24G[1G[0Jtest> show collections[23G[1G[0Jtest> use the_database[23G[1G[0Jtest> show dbs[15G[1G[0Jtest> [7G[1G[0Jtest> show dbs[15G[1G[0Jtest> use the_database[23G
+switched to db the_database
+[1G[0Jthe_database> [15G[1G[0Jthe_database> use the_database[31G[1G[0Jthe_database> show dbs[23G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[101G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> show collections[31G[1G[0Jthe_database> use the_database[31G[1G[0Jthe_database> show dbs[23G[1G[0Jthe_database> [15G[1G[0Jthe_database> show dbs[23G[1G[0Jthe_database> use the_database[31G[1G[0Jthe_database> show collections[31G
+[1mtodos[0m
+[1G[0Jthe_database> [15G[1G[0Jthe_database> show collections[31G[1G[0Jthe_database> use the_database[31G[1G[0Jthe_database> show dbs[23G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[101G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> show collections[31G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId([32m'6659f91c983af170e18db5fb'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'6659f91c983af170e18db5fc'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'665a2549561785b72c92b523'[39m),
+    text: [32m'Blah di dah'[39m,
+    done: [33mfalse[39m,
+    __v: [33m0[39m
+  },
+  {
+    _id: ObjectId([32m'665a257b561785b72c92b529'[39m),
+    text: [32m'Blah di dump'[39m,
+    done: [33mfalse[39m,
+    __v: [33m0[39m
+  },
+  {
+    _id: ObjectId([32m'665c54e755759b3cb78db5fb'[39m),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> show collections[31G[1G[0Jthe_database> use the_database[31G[1G[0Jthe_database> show dbs[23G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[101G
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'665c55556914e7c2088db5fb'[39m)
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m})[101G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> show collections[31G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId([32m'6659f91c983af170e18db5fb'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'6659f91c983af170e18db5fc'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'665a2549561785b72c92b523'[39m),
+    text: [32m'Blah di dah'[39m,
+    done: [33mfalse[39m,
+    __v: [33m0[39m
+  },
+  {
+    _id: ObjectId([32m'665a257b561785b72c92b529'[39m),
+    text: [32m'Blah di dump'[39m,
+    done: [33mfalse[39m,
+    __v: [33m0[39m
+  },
+  {
+    _id: ObjectId([32m'665c54e755759b3cb78db5fb'[39m),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'665c55556914e7c2088db5fb'[39m),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jthe_database> [15G
+[1m
+What's next?
+[0m  Try Docker Debug for seamless, persistent debugging tools in any container or image → [36mdocker debug 911198b2344f[0m
+  Learn more at https://docs.docker.com/go/debug-cli/
+[1m[7m%[27m[1m[0m                                                                                                                       ]2;howard@Howards-MacBook-Pro:~/Documents/Learning/Helsinki/Part12/todo-app/todo-backend]1;../todo-backend[0m[27m[24m[J[01;32m➜  [36mtodo-backend[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004heexit[?1l>[?2004l
+]2;exit]1;exit
+Script done on Sun Jun  2 12:20:07 2024
