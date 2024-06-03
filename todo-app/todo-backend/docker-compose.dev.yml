@@ -20,6 +20,8 @@ services:
     environment:
       - REDIS_PASSWORD=example
       - REDIS_PORT=6379
+    volumes:
+      - ./redis_data:/root/redis
 
 volumes:
   mongo_data:

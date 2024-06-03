@@ -1,6 +1,9 @@
 const express = require('express');
 const { Todo } = require('../mongo')
 const router = express.Router();
+const { setAsync, getAsync } = require('../redis')
+
+let todoCounter = 12; //initial value
 
 /* GET todos listing. */
 router.get('/', async (_, res) => {
@@ -27,6 +30,15 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   })
+
+  try {
+    todoCounter = Number(await getAsync("added_todos"))
+    todoCounter++
+    const result = await setAsync("added_todos",todoCounter)
+    console.log('result',result)
+  } catch (error) {
+    console.error('Error setting key-value pair in Redis:',error)
+  }
   res.send(todo);
 });
 
