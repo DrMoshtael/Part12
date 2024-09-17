@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  app:
+    image: bloglist-front
+    build:
+      context: ./bloglist-frontend
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./bloglist-frontend/src:/usr/src/app/src
+      - ./bloglist-frontend/public:/usr/src/app/public
+      - ./bloglist-frontend/vite.config.js:/usr/src/app/vite.config.js
+      - ./bloglist-frontend/index.html:/usr/src/app/index.html
+      - ./bloglist-frontend/.babelrc:/usr/src/app/.babelrc
+    # ports:
+    #   - 5173:5173
+    container_name: bloglist-front
+  mongo:
+    image: mongo
+    ports:
+      - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes: 
+      - ./bloglist-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./bloglist-backend/mongo_data:/data/db
+  server:
+    image: bloglist-backend
+    build:
+      context: ./bloglist-backend
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./bloglist-backend/controllers:/usr/src/app/controllers
+      - ./bloglist-backend/models:/usr/src/app/models
+      - ./bloglist-backend/mongo:/usr/src/app/mongo
+      - ./bloglist-backend/utils:/usr/src/app/utils
+      - ./bloglist-backend/index.js:/usr/src/app/index.js
+      - ./bloglist-backend/package.json:/usr/src/app/package.json
+      - ./bloglist-backend/.env:/usr/src/app/.env
+      - ./bloglist-backend/app.js:/usr/src/app/app.js
+    environment:
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: bloglist_production
+    depends_on:
+      - app
+      - mongo
+      - server
